@@ -4,12 +4,12 @@ import {
   Text,
   FlatList,
 } from 'react-native';
-import Suggestion from '../components/suggestion';
-
+import Category from '../components/category';
+import HorizontalSeparator from '../components/horizontal-separator';
 
 class Categories extends Component {
   keyExtractor = item => item.id.toString();
-
+  itemSeparator = item => <HorizontalSeparator />
   render() {
     return (
       <View>
@@ -21,7 +21,7 @@ class Categories extends Component {
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.listEmpty}
           ItemSeparatorComponent={this.itemSeparator}
-          renderItem={( {item} ) =>  <Suggestion {...item} key={item.id} />}
+          renderItem={( {item} ) =>  <Category {...item} key={item.id} />}
         />
       </View>
     )
