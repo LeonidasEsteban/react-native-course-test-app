@@ -31,7 +31,6 @@ export default class App extends Component<Props> {
   async componentDidMount() {
     const suggestions = await api.getSuggestions(20);
     const categories = await api.getMovies(20);
-    debugger
     // const query = await fetch(`https://yts.am/api/v2/movie_suggestions.json?movie_id=10`);
     // const { data: suggestions } = await query.json();
     this.setState({
