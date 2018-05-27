@@ -7,16 +7,15 @@ import {
 
 function HorizontalSeparator(props) {
   return (
-    <View style={styles.wrapper}>
+    <View
+      style={styles.separator}
+    />
 
-    </View>
   )
 }
 
 const styles = {
-  wrapper: {
-    borderLeftWidth: .5,
-    borderLeftColor: 'red',
+  separator: {
     flex: 1,
     marginHorizontal: 5,
   }
