@@ -11,10 +11,10 @@ import {
   Text,
   View
 } from 'react-native';
-import Header from './components/header';
-import Home from './containers/home';
-import Suggestions from './containers/suggestions';
-import Categories from './containers/categories';
+import Header from './src/videos/components/header';
+import Home from './src/videos/containers/home';
+import Suggestions from './src/videos/containers/suggestions';
+import Categories from './src/videos/containers/categories';
 import api from './utils/api';
 import Player from './src/player/containers/player';
 // const instructions = Platform.select({

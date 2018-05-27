@@ -13,7 +13,7 @@ function Header(props) {
       <SafeAreaView>
         <View style={styles.container}>
           <Image
-            source={require('../assets/logo.png')}
+            source={require('../../../assets/logo.png')}
             style={styles.logo}
           />
           {/*<Text>Header</Text>*/}
