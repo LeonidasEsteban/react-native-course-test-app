@@ -4,28 +4,33 @@ import {
   Text,
   StyleSheet,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 function Suggestion(props) {
   return (
-    <View style={styles.container}>
-      <View style={styles.left}>
-        <Image
-          style={styles.cover}
-          source={{
-            uri: props.background_image
-          }}
-        />
-        <View style={styles.genre}>
-          <Text style={styles.genreText}>{props.genres[0]}</Text>
+    <TouchableOpacity
+      onPress={props.onPress}
+    >
+      <View style={styles.container}>
+        <View style={styles.left}>
+          <Image
+            style={styles.cover}
+            source={{
+              uri: props.medium_cover_image
+            }}
+          />
+          <View style={styles.genre}>
+            <Text style={styles.genreText}>{props.genres[0]}</Text>
+          </View>
+        </View>
+        <View style={styles.right}>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.year}>{props.year}</Text>
+          <Text style={styles.rating}>{props.rating} Estrellas</Text>
         </View>
       </View>
-      <View style={styles.right}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.year}>{props.year}</Text>
-        <Text style={styles.rating}>{props.rating} Estrellas</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -36,12 +41,18 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   cover: {
-    height: 90,
-    width: 148,
+    height: 150,
+    width: 100,
     resizeMode: 'cover'
   },
   left: {
-
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: .5,
+    shadowRadius: 4,
+    elevation: 2,
   },
   genre: {
     backgroundColor: 'black',

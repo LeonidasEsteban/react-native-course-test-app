@@ -5,7 +5,7 @@ import {
   FlatList,
 } from 'react-native';
 import Category from '../components/category';
-import HorizontalSeparator from '../components/horizontal-separator';
+import HorizontalSeparator from '../../sections/components/horizontal-separator';
 import Layout from '../components/category-list-layout';
 
 class Categories extends Component {

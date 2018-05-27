@@ -11,10 +11,10 @@ import {
   Text,
   View
 } from 'react-native';
-import Header from './src/videos/components/header';
-import Home from './src/videos/containers/home';
-import Suggestions from './src/videos/containers/suggestions';
-import Categories from './src/videos/containers/categories';
+import Header from './src/sections/components/header';
+import Home from './src/screens/containers/home';
+import SuggestionList from './src/videos/containers/suggestion-list';
+import CategoryList from './src/videos/containers/category-list';
 import api from './utils/api';
 import Player from './src/player/containers/player';
 // const instructions = Platform.select({
@@ -27,17 +27,19 @@ import Player from './src/player/containers/player';
 type Props = {};
 export default class App extends Component<Props> {
   state = {
-    suggestions: []
+    suggestionList: [],
+    categoryList: [],
   }
   async componentDidMount() {
     const suggestions = await api.getSuggestions(20);
     const categories = await api.getMovies(20);
+    console.log(categories)
     // const query = await fetch(`https://yts.am/api/v2/movie_suggestions.json?movie_id=10`);
     // const { data: suggestions } = await query.json();
     this.setState({
       // suggestions: suggestions.movies,
-      suggestions: suggestions,
-      categories: categories,
+      suggestionList: suggestions,
+      categoryList: categories,
     })
 
 
@@ -49,11 +51,11 @@ export default class App extends Component<Props> {
         <Home>
           <Header />
           <Player />
-          <Categories
-            list={this.state.categories}
+          <CategoryList
+            list={this.state.categoryList}
           />
-          <Suggestions
-            list={this.state.suggestions}
+          <SuggestionList
+            list={this.state.suggestionList}
           />
         </Home>
       </View>
