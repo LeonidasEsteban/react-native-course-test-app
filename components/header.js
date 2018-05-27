@@ -13,9 +13,7 @@ function Header(props) {
       <SafeAreaView>
         <View style={styles.container}>
           <Image
-            source={{
-              uri: 'https://static.platzi.com/static/images/logos/platzi@2x.fdf870da3a22.png'
-            }}
+            source={require('../assets/logo.png')}
             style={styles.logo}
           />
           {/*<Text>Header</Text>*/}
@@ -27,11 +25,12 @@ function Header(props) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: 'lightblue',
   },
   container: {
-    paddingVertical: 15,
-    paddingHorizontal: 20,
+    paddingVertical: 10,
+    // paddingTop: 10,
+    // paddingBottom: 10,
+    paddingHorizontal: 10,
   },
   logo: {
     width: 80,

@@ -16,6 +16,7 @@ import Home from './containers/home';
 import Suggestions from './containers/suggestions';
 import Categories from './containers/categories';
 import api from './utils/api';
+import Player from './src/player/containers/player';
 // const instructions = Platform.select({
 //   ios: 'Press Cmd+R to reload,\n' +
 //     'Cmd+D or shake for dev menu',
@@ -47,6 +48,7 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
         <Home>
           <Header />
+          <Player />
           <Categories
             list={this.state.categories}
           />
