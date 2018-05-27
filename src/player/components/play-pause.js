@@ -12,6 +12,12 @@ function PlayPause(props) {
       onPress={props.onPress}
       style={styles.container}
       underlayColor="red"
+      hitSlop={{
+        left: 5,
+        top: 5,
+        bottom: 5,
+        right: 5,
+      }}
     >
       {
         props.paused ?
