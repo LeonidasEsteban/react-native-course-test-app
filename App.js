@@ -11,6 +11,8 @@ import {
   Text,
   View
 } from 'react-native';
+import { Provider } from 'react-redux';
+
 import Header from './src/sections/components/header';
 import Home from './src/screens/containers/home';
 import SuggestionList from './src/videos/containers/suggestion-list';
@@ -23,6 +25,7 @@ import Player from './src/player/containers/player';
 //   android: 'Double tap R on your keyboard to reload,\n' +
 //     'Shake or press menu button for dev menu',
 // });
+import store from './store';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -31,53 +34,44 @@ export default class App extends Component<Props> {
     categoryList: [],
   }
   async componentDidMount() {
-    const suggestions = await api.getSuggestions(20);
-    const categories = await api.getMovies(20);
-    console.log(categories)
+    const suggestionList = await api.getSuggestions(20);
+    store.dispatch({
+      type: 'SET_SUGGESTION_LIST',
+      payload: {
+        suggestionList
+      }
+    });
+    const categoryList = await api.getMovies(20);
+    console.log(categoryList)
     // const query = await fetch(`https://yts.am/api/v2/movie_suggestions.json?movie_id=10`);
     // const { data: suggestions } = await query.json();
-    this.setState({
-      // suggestions: suggestions.movies,
-      suggestionList: suggestions,
-      categoryList: categories,
-    })
-
-
-
+    // this.setState({
+    //   suggestions.movies,
+    //   suggestionList,
+    //   categoryList,
+    // })
+    store.dispatch({
+      type: 'SET_CATEGORY_LIST',
+      payload: {
+        categoryList
+      }
+    });
   }
   render() {
+    {/* list={this.state.categoryList} */}
+    {/* list={this.state.suggestionList} */}
     return (
-      <View style={styles.container}>
+      <Provider
+        store={store}
+        >
         <Home>
           <Header />
           <Player />
-          <CategoryList
-            list={this.state.categoryList}
-          />
-          <SuggestionList
-            list={this.state.suggestionList}
-          />
+          <CategoryList />
+          <SuggestionList />
         </Home>
-      </View>
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
-  },
-  // welcome: {
-  //   fontSize: 20,
-  //   textAlign: 'center',
-  //   margin: 10,
-  // },
-  // instructions: {
-  //   textAlign: 'center',
-  //   color: '#333333',
-  //   marginBottom: 5,
-  // },
-});
