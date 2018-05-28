@@ -14,20 +14,16 @@ import Player from './player/containers/player';
 import Movie from './screens/containers/movie';
 
 class App extends Component {
-  state = {
-    suggestionList: [],
-    categoryList: [],
-  }
   async componentDidMount() {
     const suggestionList = await api.getSuggestions(20);
-    store.dispatch({
+    this.props.dispatch({
       type: 'SET_SUGGESTION_LIST',
       payload: {
         suggestionList
       }
     });
     const categoryList = await api.getMovies(20);
-    store.dispatch({
+    this.props.dispatch({
       type: 'SET_CATEGORY_LIST',
       payload: {
         categoryList
