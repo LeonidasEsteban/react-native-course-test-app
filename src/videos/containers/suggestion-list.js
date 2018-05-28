@@ -41,11 +41,11 @@ class SuggestionList extends Component {
   render() {
     return (
       <Layout
-        title="Recomendador para ti"
+        title="Recomendados para ti"
         >
         <FlatList
           data={this.props.list}
-          initialNumToRender={1}
+          initialNumToRender={3}
           keyExtractor={this.keyExtractor}
           ListEmptyComponent={this.listEmpty}
           ItemSeparatorComponent={this.itemSeparator}
