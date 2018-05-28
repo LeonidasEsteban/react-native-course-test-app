@@ -8,6 +8,7 @@ import Separator from '../../sections/components/vertical-separator';
 import Empty from '../../sections/components/empty';
 import Layout from '../components/suggestion-list-layout';
 import { connect } from 'react-redux';
+import API from '../../../utils/api';
 
 function mapStateToProps(state) {
   return {
@@ -20,13 +21,13 @@ class SuggestionList extends Component {
   itemSeparator = item => <Separator />
   listEmpty = item => <Empty text="No hay sugerencias" />
   viewMovie = (item) => {
+    console.log(`Movie id = ${item.id}`);
     this.props.dispatch({
-      type: 'SELECTED_MOVIE',
+      type: 'SET_SELECTED_MOVIE',
       payload: {
         movie: item
       }
     })
-    console.log(`Movie id = ${item.id}`);
   }
   renderItem = ({ item }) => {
     return (

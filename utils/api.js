@@ -13,6 +13,12 @@ class Api {
     // debugger
     return data.movies
   }
+  // async getComments(id) {
+  //   const query = await fetch(`${BASE_API}/movie_comments.json?movie_id=${id}`);
+  //   debugger
+  //   const data = await query.json();
+  //   debugger
+  // }
 }
 
 export default new Api();
