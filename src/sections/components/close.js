@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   button: {
     fontWeight: 'bold',
     color: 'white',
-    lineHeight: 0,
   },
   container: {
     backgroundColor: '#14b739',

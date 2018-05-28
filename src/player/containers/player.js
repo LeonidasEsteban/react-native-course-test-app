@@ -53,6 +53,7 @@ class Player extends Component {
             paused={this.state.paused}
             rate={1.0}
             volume={0}
+            resizeMode="contain"
           />
         }
         loader={
