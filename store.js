@@ -8,6 +8,7 @@ import reducer from './reducers/videos';
 const config = {
   key: 'root',
   storage,
+  blacklist: ['selectedMovie'],
 }
 
 const persistedReducer = persistReducer(config, reducer)
