@@ -12,6 +12,7 @@ import CategoryList from './videos/containers/category-list';
 import api from '../utils/api';
 import Player from './player/containers/player';
 import Movie from './screens/containers/movie';
+import Search from './sections/containers/search';
 
 class App extends Component {
   async componentDidMount() {
@@ -37,6 +38,7 @@ class App extends Component {
       return (
         <Home>
           <Header />
+          <Search />
           <CategoryList />
           <SuggestionList />
         </Home>
