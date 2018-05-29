@@ -54,6 +54,7 @@ class Player extends Component {
             rate={1.0}
             volume={0}
             resizeMode="contain"
+            poster="https://baconmockup.com/300/200/"
           />
         }
         loader={
