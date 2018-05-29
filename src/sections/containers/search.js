@@ -38,6 +38,7 @@ class Search extends Component {
         placeholder="Busca tu película favorita"
         autoCorrect={false}
         autoCapitalize="none"
+        underlineColorAndroid="transparent"
       />
     )
   }
